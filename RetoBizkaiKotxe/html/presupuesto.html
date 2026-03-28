@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presupuesto | BizkaiKotxe</title>
+    <title>BizkaiKotxe | Presupuesto</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -23,47 +23,164 @@
     </nav>
 
     <section class="content-section">
-        <h2>Presupuesto Inicial</h2>
-        <div class="text-box">
-            <p>Estimación de los costes para el primer año de operaciones de BizkaiKotxe:</p>
+        
+        <div class="content-box">
+            <h2>Presupuesto de Lanzamiento y Operativa (Año 1)</h2>
+            <p>El siguiente plan financiero detalla la inversión inicial y los costes operativos previstos para el primer año de actividad de BizkaiKotxe. Se ha estructurado para garantizar la viabilidad del despliegue tecnológico y la adquisición de la flota eléctrica inicial.</p>
             
-            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
-                <tr style="background-color: var(--secondary-color); color: white;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">Concepto</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">Coste Estimado (€)</th>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Adquisición de Vehículos (Leasing 1er año)</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">85.000 €</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Infraestructura de carga y alquiler de local</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">25.000 €</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Desarrollo Web y Software</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">8.500 €</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Marketing y Publicidad</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">12.000 €</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Seguros y Licencias</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">15.000 €</td>
-                </tr>
-                <tr style="background-color: #f1f2f6; font-weight: bold;">
-                    <td style="padding: 10px; border: 1px solid #ddd;">TOTAL ESTIMADO</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">145.500 €</td>
-                </tr>
-            </table>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <span class="kpi-value" style="font-size: 2.5rem; color: var(--text-main);">185.500 €</span>
+                    <span class="kpi-label" style="color: var(--primary-color);">Inversión Inicial (CAPEX)</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-value" style="font-size: 2.5rem; color: var(--text-main);">142.800 €</span>
+                    <span class="kpi-label" style="color: var(--warning-color);">Gastos Operativos (OPEX)</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-value" style="font-size: 2.5rem; color: var(--success-color);">328.300 €</span>
+                    <span class="kpi-label" style="color: var(--success-color);">Presupuesto Total Año 1</span>
+                </div>
+            </div>
         </div>
+
+        <div class="content-box">
+            <h3>1. Inversión en Infraestructura y Flota (CAPEX)</h3>
+            <p>Costes de adquisición de activos físicos para el despliegue del servicio en Bilbao.</p>
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Descripción Detallada</th>
+                            <th>Coste Estimado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flota de Vehículos (Entrada)</td>
+                            <td>Pago inicial (leasing) para 10 vehículos 100% eléctricos (Tesla Model 3, Peugeot e-208).</td>
+                            <td>120.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Hubs de Carga Rápida</td>
+                            <td>Instalación de 3 puntos de carga rápida (50kW) en el centro logístico y permisos municipales.</td>
+                            <td>45.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Equipamiento Hardware</td>
+                            <td>Servidores físicos para backups locales, 3 Workstations para desarrollo y terminales móviles.</td>
+                            <td>12.500 €</td>
+                        </tr>
+                        <tr>
+                            <td>Acondicionamiento Local</td>
+                            <td>Reforma y adaptación de la oficina principal y garaje base.</td>
+                            <td>8.000 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="total-row">
+                            <td colspan="2">Subtotal Infraestructura</td>
+                            <td>185.500 €</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3>2. Licencias, Software y Cloud (OPEX IT)</h3>
+            <p>Costes asociados a la arquitectura web, herramientas de seguimiento y alojamiento.</p>
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Descripción Detallada</th>
+                            <th>Coste Anual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alojamiento Cloud (AWS/GCP)</td>
+                            <td>Servidores de producción, bases de datos gestionadas y balanceadores de carga.</td>
+                            <td>4.200 €</td>
+                        </tr>
+                        <tr>
+                            <td>Herramientas de Desarrollo</td>
+                            <td>Licencias de GitLab Premium (CI/CD), IDEs (JetBrains) y entornos de prueba.</td>
+                            <td>1.500 €</td>
+                        </tr>
+                        <tr>
+                            <td>APIs y Pasarelas</td>
+                            <td>Google Maps API (geolocalización de flota) y comisiones estimadas de pasarela de pago (Stripe).</td>
+                            <td>3.800 €</td>
+                        </tr>
+                        <tr>
+                            <td>Gestión Empresarial</td>
+                            <td>Suscripción a Odoo Enterprise (Project, Timesheets, Facturación).</td>
+                            <td>1.200 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="total-row">
+                            <td colspan="2">Subtotal Tecnología</td>
+                            <td>10.700 €</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3>3. Recursos Humanos y Operaciones (OPEX General)</h3>
+            <p>Gastos de personal (equipo fundador) y costes fijos de mantenimiento comercial.</p>
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Descripción Detallada</th>
+                            <th>Coste Anual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Salarios Equipo Core (3)</td>
+                            <td>Retribución base para CEO (Marcos), CTO (Luis) y COO (Aingeru).</td>
+                            <td>90.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Seguros de Flota</td>
+                            <td>Pólizas a todo riesgo con franquicia para los 10 vehículos operativos.</td>
+                            <td>18.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing y Captación</td>
+                            <td>Campañas en redes sociales, SEO/SEM y promociones de lanzamiento ZBE.</td>
+                            <td>12.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Alquileres y Suministros</td>
+                            <td>Arrendamiento del local/garaje y consumo eléctrico estimado.</td>
+                            <td>12.100 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="total-row">
+                            <td colspan="2">Subtotal RRHH y Operaciones</td>
+                            <td>132.100 €</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
     </section>
 
     <footer>
-        <p>&copy; 2026 Proyecto BizkaiKotxe. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Proyecto BizkaiKotxe - Módulo PDAM</p>
     </footer>
 
-    <script src="../javascript/main.js"></script>
 </body>
 </html>

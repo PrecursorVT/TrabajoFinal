@@ -1,44 +1,68 @@
+/* =========================================
+   1. VARIABLES GLOBALES (Identidad BizkaiKotxe App)
+========================================= */
 :root {
-    --primary-color: #00b894;
-    --secondary-color: #2d3436;
-    --bg-color: #f9f9f9;
-    --text-color: #636e72;
-    --white: #ffffff;
+    --primary-color: #4a9eff;   /* Azul eléctrico de los botones */
+    --primary-hover: #5BA3F5;
+    --secondary-color: #1a2332; /* Azul muy oscuro del fondo */
+    --panel-bg: rgba(30, 40, 55, 0.8); /* Paneles translúcidos principales */
+    --panel-bg-light: rgba(45, 58, 78, 0.8); /* Inputs y tarjetas secundarias */
+    --bg-gradient: linear-gradient(to bottom right, #1a2332, #2d4159);
+    --text-main: #ffffff;       /* Texto principal blanco */
+    --text-muted: #8a9ba8;      /* Texto secundario gris azulado */
+    --success-color: #4aff9e;   /* Verde menta para disponibilidad/KPIs */
+    --warning-color: #ffa94a;   /* Naranja para advertencias/tareas críticas */
+    --danger-color: #ff4a6a;    /* Rojo para eliminar */
 }
 
+/* =========================================
+   2. RESET Y TIPOGRAFÍA BASE
+========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', 'Segoe UI', sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* Evita que el degradado se corte al hacer scroll */
+    color: var(--text-main);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para que el footer se quede abajo */
+    min-height: 100vh;
 }
 
-/* Navegación (Actualizada para muchos enlaces) */
+h2, h3, h4 {
+    color: var(--text-main);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   3. NAVEGACIÓN Y FOOTER
+========================================= */
 nav {
-    background-color: var(--white);
+    background-color: rgba(30, 40, 55, 0.95);
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     position: sticky;
     top: 0;
     z-index: 100;
-    flex-wrap: wrap; /* Permite que el menú baje de línea si no cabe */
+    flex-wrap: wrap;
+    border-bottom: 2px solid rgba(74, 158, 255, 0.2);
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--text-main);
     margin-right: 20px;
 }
 
@@ -49,75 +73,420 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Importante para que el menú largo no se rompa */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--text-muted);
     font-weight: 500;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    padding: 5px 0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    color: var(--text-main);
+    background-color: rgba(74, 158, 255, 0.15);
 }
 
-/* Sección Hero (Inicio) */
+footer {
+    background-color: rgba(30, 40, 55, 0.95);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 1px solid rgba(74, 158, 255, 0.1);
+}
+
+/* =========================================
+   4. ESTRUCTURA Y LAYOUT (Ancho Completo)
+========================================= */
+/* Contenedor principal que ocupa todo el ancho y alto visual */
+.home-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Ajusta la altura si lo prefieres más alto o bajo */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* --- Carrusel de Fondo Puro CSS --- */
+.carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Por debajo de la tarjeta */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    /* Animación: 15s total (3 fotos x 5s), infinita */
+    animation: crossfadeAnimation 15s infinite; 
+}
+
+/* Imágenes temporales de Unsplash (Coches eléctricos/tech) */
+.slide-1 {
+    /* Mantenemos una capa oscura sobre la imagen para asegurar legibilidad */
+    background-image: linear-gradient(rgba(26, 35, 50, 0.6), rgba(26, 35, 50, 0.8)), 
+                      url('../img/coches_variedad.png');
+    animation-delay: 0s;
+}
+
+.slide-2 {
+    background-image: linear-gradient(rgba(26, 35, 50, 0.6), rgba(26, 35, 50, 0.8)),
+                      url('../img/coche_tesla_base.png');
+    animation-delay: 5s;
+}
+
+.slide-3 {
+    background-image: linear-gradient(rgba(26, 35, 50, 0.6), rgba(26, 35, 50, 0.8)),
+                      url('../img/coche_en_movimiento.png');
+    animation-delay: 10s;
+}
+
+/* Lógica de la animación de fundido cruzado */
+@keyframes crossfadeAnimation {
+    0% { opacity: 0; }
+    5% { opacity: 1; }   /* Aparece en el 5% del tiempo */
+    33% { opacity: 1; }  /* Se mantiene visible un tercio del tiempo */
+    38% { opacity: 0; }  /* Desaparece */
+    100% { opacity: 0; }
+}
+
+/* --- Tarjeta Translúcida (Glassmorphism) --- */
+.welcome-card-wrapper {
+    position: relative;
+    z-index: 10; /* Por encima del carrusel */
+    padding: 20px;
+    max-width: 800px; /* Ancho máximo de la tarjeta */
+    text-align: center;
+}
+
+.welcome-card {
+    padding: 60px 40px;
+    border-radius: 20px; /* Bordes muy redondeados como en la App JavaFX */
+}
+
+/* El efecto "Cristal" */
+.glassmorphism {
+    /* Fondo oscuro mucho más transparente (bajamos de 0.6 a 0.35) */
+    background-color: rgba(30, 40, 55, 0.35); 
+    
+    /* Desenfoque más suave para que el fondo se aprecie mejor */
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(6px); 
+    
+    /* Mantenemos el borde de cristal y suavizamos un pelín la sombra */
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes de texto dentro de la tarjeta para que resalten */
+.welcome-card h1 {
+    font-size: 3.2rem;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra al texto para leer mejor */
+}
+
+.welcome-card p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--text-main); /* Forzamos blanco en vez de muted para contraste */
+    font-weight: 300;
+}
 .hero {
-    background: linear-gradient(rgba(45, 52, 54, 0.8), rgba(45, 52, 54, 0.8)), url('https://images.unsplash.com/photo-1593941707882-a5bba14938cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-    flex-grow: 1; /* Ocupa el espacio disponible */
+    background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(45, 65, 89, 0.8)), url('https://images.unsplash.com/photo-1593941707882-a5bba14938cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--white);
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: var(--text-main);
 }
 
-/* Contenido de las subpáginas */
 .content-section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-grow: 1; /* Ocupa el espacio disponible empujando el footer */
+    padding: 40px 20px;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    max-width: 100%; /* Elimina restricciones previas */
+    margin: 0;
+    flex-grow: 1;
 }
 
-.content-section h2 {
-    color: var(--secondary-color);
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.text-box {
-    background: var(--white);
+.content-box {
+    background-color: var(--panel-bg);
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    line-height: 1.6;
-    font-size: 1.1rem;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(74, 158, 255, 0.1);
 }
 
-.text-box p {
+.content-box h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(74, 158, 255, 0.2);
+}
+
+.content-box p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* =========================================
+   5. COMPONENTES ESPECÍFICOS
+========================================= */
+
+/* --- Destacados de Contexto y Herramientas --- */
+.data-highlight, .tool-highlight {
+    background-color: var(--panel-bg-light);
+    padding: 20px 25px;
+    border-left: 4px solid var(--primary-color);
+    margin: 25px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.data-highlight ul, .tool-highlight ul {
+    list-style: none;
+}
+
+.data-highlight ul li, .tool-highlight ul li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text-muted);
+}
+
+.data-highlight ul li::before, .tool-highlight ul li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.tool-highlight h3 {
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
-/* Footer */
-footer {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    text-align: center;
+/* --- Requisitos Técnicos --- */
+.tech-header {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+    margin-top: 35px;
+}
+
+.tech-requirements ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.tech-requirements ul li {
+    background-color: var(--panel-bg-light);
+    border: 1px solid rgba(74, 158, 255, 0.2);
     padding: 20px;
-    margin-top: auto; /* Empuja el footer al fondo de la pantalla */
+    border-radius: 12px;
+    flex: 1 1 calc(50% - 15px);
+    transition: all 0.3s ease;
+}
+
+.tech-requirements ul li:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(74, 158, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.tech-requirements ul li strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/* --- Tablas (Cronograma y Presupuesto) --- */
+.table-container {
+    overflow-x: auto;
+    margin: 25px 0;
+    background-color: var(--panel-bg-light);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+}
+
+.styled-table thead tr {
+    background-color: rgba(30, 40, 55, 0.9);
+    color: var(--text-muted);
+}
+
+.styled-table th {
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(74, 158, 255, 0.2);
+}
+
+.styled-table td {
+    padding: 15px 20px;
+    color: var(--text-main);
+    border-bottom: 1px solid rgba(74, 158, 255, 0.1);
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(74, 158, 255, 0.08);
+}
+
+.critical-task {
+    background-color: rgba(255, 169, 74, 0.1) !important;
+}
+
+.critical-task td {
+    border-left: 4px solid var(--warning-color);
+}
+
+.critical-task strong {
+    color: var(--warning-color);
+}
+
+.total-row {
+    background-color: rgba(30, 40, 55, 0.9);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.total-row td {
+    color: var(--success-color);
+    border-bottom: none;
+}
+
+/* --- Diagramas y BPMN --- */
+.diagram-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px;
+    background-color: var(--panel-bg-light);
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    border-radius: 12px;
+}
+
+.bpmn-placeholder {
+    background-color: rgba(30, 40, 55, 0.6);
+    border: 2px dashed rgba(74, 158, 255, 0.5);
+    padding: 50px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.diagram-caption {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.responsive-diagram {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #ffffff; /* Fondo blanco forzado para que el diagrama BPMN (que suele tener letras negras) se lea bien */
+}
+
+/* --- KPIs (Indicadores Clave) --- */
+.kpi-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    background-color: var(--panel-bg-light);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1 1 250px; /* Expande uniformemente ocupando el 100% del ancho */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(74, 158, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(45, 58, 78, 0.95);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 25px rgba(74, 158, 255, 0.15);
+}
+
+.kpi-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--success-color); /* Usamos el verde menta de la app para denotar datos positivos */
+    margin-bottom: 5px;
+}
+
+.kpi-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   6. RESPONSIVE DESIGN
+========================================= */
+@media(max-width: 768px) {
+    .tech-requirements ul li, .kpi-card {
+        flex: 1 1 100%;
+    }
+    .content-section {
+        padding: 20px 10px;
+    }
+    .content-box {
+        padding: 20px;
+    }
+    .welcome-card h1 {
+        font-size: 2.2rem;
+    }
+    .welcome-card p {
+        font-size: 1rem;
+    }
+    .welcome-card {
+        padding: 40px 20px;
+    }
 }
