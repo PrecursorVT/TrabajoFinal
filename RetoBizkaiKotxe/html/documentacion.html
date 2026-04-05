@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizkaiKotxe | Documentación Técnica</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Bizkai<span>Kotxe</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="origen.html">Origen</a></li>
+            <li><a href="objetivos.html">Objetivos</a></li>
+            <li><a href="tareas.html">Tareas</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="presupuesto.html">Presupuesto</a></li>
+            <li><a href="seguimiento.html">Seguimiento</a></li>
+            <li><a href="documentacion.html" class="active">Documentación</a></li>
+        </ul>
+    </nav>
+
+    <section class="content-section">
+        
+        <div class="content-box">
+            <h2>Arquitectura y Stack Tecnológico</h2>
+            <p>La plataforma BizkaiKotxe se apoya en una arquitectura robusta de tres capas (Presentación, Negocio y Datos) para garantizar un servicio de alquiler eficiente y seguro.</p>
+            
+            <div class="tool-highlight">
+                <ul>
+                    <li><strong>Frontend:</strong> Interfaz rica desarrollada en JavaFX 17 con diseño responsivo basado en FXML.</li>
+                    <li><strong>Persistencia:</strong> Implementación de JPA y Hibernate para la gestión del ciclo de vida de los objetos.</li>
+                    <li><strong>Base de Datos:</strong> Sistema relacional MariaDB optimizado para consultas de flota en tiempo real.</li>
+                    <li><strong>Reporting:</strong> Generación dinámica de contratos y facturas mediante JasperReports.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Anexo de Diagramas Técnicos</h2>
+            <p>Haz clic en cada sección para desplegar los diagramas detallados del sistema.</p>
+
+            <details class="tech-accordion">
+                <summary>Mapa de Navegación (Flujo de Ventanas JavaFX)</summary>
+                <div class="diagram-container">
+                    <img src="../img/diagrama_navegacion.png" alt="Navegación FXML" class="responsive-diagram">
+                    <p class="diagram-caption">Muestra la interacción entre los controladores LogIn, CarStock y Rent.</p>
+                </div>
+            </details>
+
+            <details class="tech-accordion">
+                <summary>Modelo de Dominio (Diagrama de Clases UML)</summary>
+                <div class="diagram-container">
+                    <img src="../img/diagrama_clases.png" alt="UML Clases" class="responsive-diagram">
+                    <p class="diagram-caption">Estructura de entidades User, Vehicle y Rental con sus respectivas relaciones de herencia y asociación.</p>
+                </div>
+            </details>
+
+            <details class="tech-accordion">
+                <summary>Diseño de Base de Datos (Diagrama Entidad-Relación)</summary>
+                <div class="diagram-container">
+                    <img src="../img/diagrama_er.jpg" alt="Diagrama E-R" class="responsive-diagram">
+                    <p class="diagram-caption">Mapeo físico de tablas y claves foráneas para la persistencia de datos en MariaDB.</p>
+                </div>
+            </details>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Proyecto BizkaiKotxe - Módulo PDAM</p>
+    </footer>
+
+</body>
+</html>
