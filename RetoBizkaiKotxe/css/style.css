@@ -490,3 +490,46 @@ footer {
         padding: 40px 20px;
     }
 }
+
+/* --- Estilos para los Acordeones de Documentación --- */
+.tech-accordion {
+    background: rgba(45, 58, 78, 0.4);
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.tech-accordion summary {
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.tech-accordion summary::before {
+    content: "▶ ";
+    display: inline-block;
+    width: 20px;
+    transition: transform 0.3s;
+}
+
+.tech-accordion[open] summary::before {
+    transform: rotate(90deg);
+    content: "▼ ";
+}
+
+.tech-accordion[open] {
+    background: rgba(45, 58, 78, 0.6);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tech-accordion .diagram-container {
+    border: none;
+    background: transparent;
+    padding: 20px 0 0 0;
+}
