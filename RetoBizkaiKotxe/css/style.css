@@ -533,3 +533,50 @@ footer {
     background: transparent;
     padding: 20px 0 0 0;
 }
+
+/* =========================================
+   VENTANA MODAL PARA DIAGRAMAS
+========================================= */
+.modal-diagrama {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 9999; /* Por encima de todo, incluso el menú nav */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(15, 23, 36, 0.9); /* Fondo oscuro muy elegante */
+    backdrop-filter: blur(5px); /* Efecto cristal en el fondo */
+}
+
+/* Contenedor que permite hacer scroll infinito en la imagen */
+.modal-scroll-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* ¡Esta es la magia para que se pueda scrollear! */
+    display: flex;
+    padding: 50px; /* Espacio para que no choque con los bordes */
+}
+
+.modal-scroll-container img {
+    margin: auto; /* Centra la imagen */
+    max-width: none; /* Evita que la imagen se encoja */
+    /* min-width: 2500px; Si ves que aún se encoge, descomenta esta línea */
+}
+
+/* Botón flotante para cerrar (La "X") */
+.cerrar-modal {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    color: var(--text-main);
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: var(--danger-color);
+}

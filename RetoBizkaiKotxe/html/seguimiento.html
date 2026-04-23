@@ -38,10 +38,10 @@
             <h3>Modelo de Proceso de Negocio (BPMN)</h3>
             <p>A continuación se detalla el flujo de actividad para el proceso crítico de <strong>Alquiler de Vehículo y Devolución</strong>:</p>
             
-            <div class="diagram-container">
-                <img src="../img/flujo.png" alt="Diagrama BPMN del proceso de reserva y alquiler de vehículo" class="responsive-diagram">
-                <p class="diagram-caption">Figura 1: Diagrama de actividad diseñado con Dia Diagram Editor. </p>
-            </div> 
+        <div class="diagram-container">
+            <img src="../img/flujo.png" alt="Diagrama BPMN" class="responsive-diagram diagrama-ancho" style="cursor: zoom-in;" onclick="document.getElementById('ventanaModal').style.display='block'">
+            <p class="diagram-caption">Figura 1: Diagrama de actividad (Haz clic para ver a pantalla completa)</p>
+        </div>
             <h2>Evaluación y KPIs (Indicadores Clave)</h2>
             
             <div class="kpi-grid">
@@ -60,6 +60,12 @@
             </div> 
         </div> 
     </section>
+    <div id="ventanaModal" class="modal-diagrama">
+            <span class="cerrar-modal" onclick="document.getElementById('ventanaModal').style.display='none'">&times;</span>
+            <div class="modal-scroll-container">
+                <img src="../img/flujo.png" alt="Diagrama en tamaño completo">
+            </div>
+    </div>
     <footer>
         <p>&copy; 2026 Proyecto BizkaiKotxe. Todos los derechos reservados.</p>
     </footer>
